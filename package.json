@@ -1,0 +1,7 @@
+{
+  "scripts:" {
+    "lint": "eslint tests",
+    "tets": "playwright test",
+    "test: e2e": "playwright test --project=e2e"
+  }
+}
