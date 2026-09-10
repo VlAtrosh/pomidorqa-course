@@ -1,10 +1,10 @@
 name: Playwright.yml
 
-  on:
-    push:
-      branches: [main, "hw*"]
-    pull_request: 
-      branches: [main]
+on:
+  push:
+    branches: [main, "hw*"]
+  pull_request: 
+    branches: [main]
 
 jobs:
   test: 
