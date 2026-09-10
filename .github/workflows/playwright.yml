@@ -1,1 +1,46 @@
+name: Playwright.yml
 
+  on:
+    push:
+      branches: [main, "hw*"]
+    pull_request: 
+      branches: [main]
+
+jobs:
+  test: 
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-vesrion: '20'
+          cash: 'npm'
+
+      - name: Install dependecies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run linter
+        run: npm run linter
+
+      - name: Run tests
+        run: npm test
+        env:
+          POMIDORQA_BASE_URL: https://aiqa.su
+          
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
+      
+      
