@@ -1,7 +1,18 @@
 {
-  "scripts": {
+	"name": "pomidorqa-course",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
     "lint": "eslint tests",
-    "tets": "playwright test",
-    "test: e2e": "playwright test --project=e2e"
-  }
+    "test": "playwright test",
+    "test:e2e": "playwright test --project=e2e"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.55.0",
+		"@types/node": "^24.0.0",
+		"eslint": "^10.8.1",
+		"eslint-plugin-playwright": "^2.11.0",
+		"typescript-eslint": "^8.67.0",
+		"typescript": "^5.9.0"
+	}
 }
